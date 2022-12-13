@@ -6,6 +6,9 @@
 Welcome to OSeMOSYS-Kenya model documentation!
 ================================================
 
+OSeMOSYS Kenya power sector and full energy system models.
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
