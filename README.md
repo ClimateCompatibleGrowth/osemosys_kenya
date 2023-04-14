@@ -7,10 +7,10 @@ OSeMOSYS-Kenya models:
 
 Each model requires two files to run:
 - Model file
-  - The model file is directly stored in this repo and is the same file for both the power sector and full energy system models.
+  - Model files are stored in the models subfolder and the same file is to be used both for the power sector and full energy system models.
     - model_light.txt runs without outputs on single timeslices activity.
     - model_heavy.txt generates outputs on single timeslices activity, issues might arise on building the matrix for the WESM as it might be too big.
 - Data file
-  - The data.txt is managed through the user interface MOMANI. This repository stores the MOMANI files for the power sector and full energy system models in the osemosys.zip file. To see the models in MOMANI: download the osemosys.zip file, add it to your local momani/data folder and run deploy.cmd as administrator.
+  - Data files are stored in the datafiles subfolder, but can be generated through MOMANI interface. The osemosys.zip file should be used to load the models in MOMANI: download the osemosys.zip file, add it to your local momani/data folder and run deploy.cmd as administrator.
 
-To run the model on OSeMOSYS cloud: use one of the model files here provided and the data.txt generated with MOMANI.
+To run the models on OSeMOSYS cloud: upload the model and data files and run.
