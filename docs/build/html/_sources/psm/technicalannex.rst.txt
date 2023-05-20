@@ -24,7 +24,3 @@ Variables
    :file: ./data/variables.csv
    :widths: 70, 100, 30
    :header-rows: 0
-
-.. raw:: html
-
-   <link rel="stylesheet" type="text/css" href="_static/custom-style.css">
