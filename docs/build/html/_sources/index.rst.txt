@@ -13,4 +13,3 @@ OSeMOSYS-Kenya documentation
 
    psm/psm
    wesm/wesm
-

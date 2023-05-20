@@ -699,7 +699,3 @@ nav#breadcrumbs li+li:before {
         display: none;
     }
 }
-
-table {
-    font-size: 12px;
-}
