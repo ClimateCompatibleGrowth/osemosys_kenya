@@ -328,7 +328,7 @@ p.admonition-title:after {
 
 pre, tt, code {
     font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-    font-size: 0.9em;
+    font-size: 0.9m;
 }
 
 .hll {
@@ -698,4 +698,8 @@ nav#breadcrumbs li+li:before {
     div.related {
         display: none;
     }
+}
+
+table {
+    font-size: 12px;
 }
