@@ -8,6 +8,7 @@ This documentation should help users navigate through the model and understand t
 
 .. toctree::
    :maxdepth: 2
+   
    overview
    modelscope
    modelstructure
