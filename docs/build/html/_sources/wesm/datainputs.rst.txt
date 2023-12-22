@@ -1,9 +1,11 @@
 ==============
 3. Data inputs
 ==============
+This section gives an overview of the data sources used in the model and how it was implemented.
 
 3.1 Main data sources
 =====================
+The following table lists the main data sources used to populate the model. Where available, Kenyan data sources have been used, either directly in the model or, if not in the right format, to validate the data already in the model. It is the case of the technologies in the agricultural, commercial, and industrial sectors, for which the level of detail could be improved. The power sector heavily relies on data provided by the LCPDP team. Data for the residential sector has been also provided by Nuvoni, a Kenyan consultancy firm currently working at the national e-cooking strategy to be published in the next months. 
 
 .. csv-table:: 
    :file: ./data/data_sources.csv
