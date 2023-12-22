@@ -1,120 +1,1327 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Model structure &mdash; OSeMOSYS Kenya 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
 
-    <title>Model structure &#8212; OSeMOSYS Kenya 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Techincal annex" href="technicalannex.html" />
-    <link rel="prev" title="Model scope" href="modelscope.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="next" title="2. Demand projections" href="demands.html" />
+    <link rel="prev" title="Whole energy system model" href="wesm.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
-
-          <div class="body" role="main">
-            
-  <section id="model-structure">
-<h1>Model structure<a class="headerlink" href="#model-structure" title="Permalink to this heading">¶</a></h1>
-<a class="reference internal image-reference" href="../_images/RES.svg"><img alt="Reference energy system" src="../_images/RES.svg" width="1200" /></a>
-</section>
-
-
-          </div>
           
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">OSeMOSYS Kenya</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
+          <a href="../index.html" class="icon icon-home">
+            OSeMOSYS Kenya
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../psm/psm.html">Power system model</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="wesm.html">Whole energy system model</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modelscope.html">Model scope</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Model structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="technicalannex.html">Techincal annex</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Model structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-model-structure">1.1 General model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-configuration-sets">1.2 Model configuration - Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#years-and-region">Years and region</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#timeslices">Timeslices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fuels">Fuels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#technologies-and-modes-of-operation">Technologies and modes of operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emissions">Emissions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-energy-system">1.3 Reference energy system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sectors">1.4 Sectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agriculture">Agriculture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commercial-sector">Commercial sector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#industry">Industry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#residential-sector">Residential sector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transports">Transports</a></li>
 </ul>
 </li>
 </ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="wesm.html">Whole energy system model</a><ul>
-      <li>Previous: <a href="modelscope.html" title="previous chapter">Model scope</a></li>
-      <li>Next: <a href="technicalannex.html" title="next chapter">Techincal annex</a></li>
-  </ul></li>
-  </ul></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="demands.html">2. Demand projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datainputs.html">3. Data inputs</a></li>
 </ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../annex/annex.html">Annexes</a></li>
+</ul>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, Climate Compatible Growth.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/wesm/modelstructure.rst.txt"
-          rel="nofollow">Page source</a>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OSeMOSYS Kenya</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="wesm.html">Whole energy system model</a></li>
+      <li class="breadcrumb-item active">1. Model structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wesm/modelstructure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="model-structure">
+<h1>1. Model structure<a class="headerlink" href="#model-structure" title="Permalink to this heading"></a></h1>
+<p>A description of how the Kenya-WESM model is structured is given in the following. Section 1.1 gives a general description of the model while Section 1.2 gives additional information based on how OSeMOSYS’ sets have been defined listing all fuels, technologies and emissions considered. Section 2.3 introduces the full Reference Energy System and Section 2.4 looks at each demand sector more in detail.</p>
+<section id="general-model-structure">
+<h2>1.1 General model structure<a class="headerlink" href="#general-model-structure" title="Permalink to this heading"></a></h2>
+<p>The general model structure is represented in the following figure. Primary energy can be either imported or produced locally. Renewable energy sources are local resources that feed into the power system to produce electricty that is then distributed to the various sectors. Bioenergy can both be directed towards the power sector, to be used in biomass power plants, or directly to the residential sector, where it is used for cooking and heating water in the form of wood fuel, charcoal, bioethanol or biomethane. Finally, fossil fuels are only imported, and are distributed through the various end use sectors as well as to the power system. No dometic production of fossil fuels is considered, as well as no refining capacity. On the end use sectors side of the energy system, sectors considered include agriculture, commercial, industry, residential and transports. Demands are modelled according to the energy service demand principle, to allow the model to choose between different technology options in each sector.</p>
+<a class="reference internal image-reference" href="../_images/general_structure.svg"><img alt="Simplified Reference energy system" src="../_images/general_structure.svg" width="1200" /></a>
+</section>
+<section id="model-configuration-sets">
+<h2>1.2 Model configuration - Sets<a class="headerlink" href="#model-configuration-sets" title="Permalink to this heading"></a></h2>
+<p>Sets shape the general model structure and contain information on the temporal and geographical coordinates of the model, as well as the fuels, technologies and typology of emissions included.</p>
+<section id="years-and-region">
+<h3>Years and region<a class="headerlink" href="#years-and-region" title="Permalink to this heading"></a></h3>
+<p>The model is a single node national model for the whole country, meaning that no internal energy fluxes between different regions are considered. The time horizon is between 2019 and 2050, with one year increments. Years between 2019 and 2022 are used for calibration and checked with available data.</p>
+</section>
+<section id="timeslices">
+<h3>Timeslices<a class="headerlink" href="#timeslices" title="Permalink to this heading"></a></h3>
+<p>Timeslices constitue the representation of time within a single year in the model. The Kenya-WESM uses 48 timeslices, given by the combination of 4 seasons, 2 day types (weekday and week end days), and 6 time intervals within one day.</p>
+</section>
+<section id="fuels">
+<h3>Fuels<a class="headerlink" href="#fuels" title="Permalink to this heading"></a></h3>
+<p>Fuels include all commodities considered in the model, being it primary or secondary. Generally speaking, primary and secondary commodities can be both produced locally or imported. In the case of Kenya, no fossil fuel local production is considered, and the only domestic resources corresponds to the potential of renewable energy sources as biomass, geothermal, solar, wind and hydro. Imported fossil fuels can be employed in one or more sectors and include coal, heavy and light fuel oil, natural gas, diesel fuel, gasoline, kerosene, jet fuel and LPG. Charcoal, bioethanol and biogas are locally produced, the first two from biomass, the latter from residual waste not accounted for in the model. Electricity is produced by the available power plants or imported from Ethiopia and Uganda and is represented by three different fuels, corresponding to electricity before transmission, between transmission and distribution and after distribution. To facilitate the analysis of the results, sector-specific fuels are defined and linked to the generic fuels through dummy technologies named fuel-technology mix technologies (FTE). Finally, demands are represented by fuels as well and identified by the prefix DEM.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AGRDSL</p></td>
+<td><p>Agriculture - Diesel</p></td>
+</tr>
+<tr class="row-odd"><td><p>AGRGSL</p></td>
+<td><p>Agriculture - Gasoline</p></td>
+</tr>
+<tr class="row-even"><td><p>AGRHFO</p></td>
+<td><p>Agriculture - Heavy fuel oil</p></td>
+</tr>
+<tr class="row-odd"><td><p>BGS</p></td>
+<td><p>Biogas</p></td>
+</tr>
+<tr class="row-even"><td><p>BIO</p></td>
+<td><p>Biomass</p></td>
+</tr>
+<tr class="row-odd"><td><p>CHC</p></td>
+<td><p>Charcoal</p></td>
+</tr>
+<tr class="row-even"><td><p>COA</p></td>
+<td><p>Coal</p></td>
+</tr>
+<tr class="row-odd"><td><p>COMELC</p></td>
+<td><p>Commercial - Electricity</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMAGR</p></td>
+<td><p>Demand - Agriculture</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMCCO</p></td>
+<td><p>Demand - Commercial other</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMICM</p></td>
+<td><p>Demand - Industry - Non-metallic minerals and cement</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMIFP</p></td>
+<td><p>Demand - Industry - Food and food processing</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMIOI</p></td>
+<td><p>Demand - Industry - Other industry</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMRC1</p></td>
+<td><p>Demand - Residential - Cooling demand urban</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMRC2</p></td>
+<td><p>Demand - Residential - Cooling demand rural</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMRK1</p></td>
+<td><p>Demand - Residential - Cooking and hot water urban</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMRK2</p></td>
+<td><p>Demand - Residential - Cooking and hot water rural</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMRL1</p></td>
+<td><p>Demand - Residential - Lighting urban</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMRL2</p></td>
+<td><p>Demand - Residential - Lighting rural</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMRO1</p></td>
+<td><p>Demand - Residential - Other electricity demand urban</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMRO2</p></td>
+<td><p>Demand - Residential - Other electricity demand rural</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMTAI</p></td>
+<td><p>Demand - Transport - Aviation</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMTRB</p></td>
+<td><p>Demand - Transport - Bus</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMTRC</p></td>
+<td><p>Demand - Transport - Passenger car</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMTRH</p></td>
+<td><p>Demand - Transport - Heavy goods vehicle</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMTRL</p></td>
+<td><p>Demand - Transport - Light commercial vehicle</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMTRM</p></td>
+<td><p>Demand - Transport - Motorbike/two-wheeler</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEMTTR</p></td>
+<td><p>Demand - Transport - Trains (Rail)</p></td>
+</tr>
+<tr class="row-even"><td><p>DEMTWD</p></td>
+<td><p>Demand - Transport - Shipping</p></td>
+</tr>
+<tr class="row-odd"><td><p>DSL</p></td>
+<td><p>Diesel</p></td>
+</tr>
+<tr class="row-even"><td><p>ELC001</p></td>
+<td><p>Electricity high voltage (transmission)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ELC002</p></td>
+<td><p>Electricity medium voltage</p></td>
+</tr>
+<tr class="row-even"><td><p>ELC003</p></td>
+<td><p>Electricity low voltage (distribution)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH</p></td>
+<td><p>Ethanol</p></td>
+</tr>
+<tr class="row-even"><td><p>GEO</p></td>
+<td><p>Geothermal</p></td>
+</tr>
+<tr class="row-odd"><td><p>GSL</p></td>
+<td><p>Gasoline</p></td>
+</tr>
+<tr class="row-even"><td><p>HFOMOM</p></td>
+<td><p>Heavy fuel oil - Mombasa</p></td>
+</tr>
+<tr class="row-odd"><td><p>HFONAI</p></td>
+<td><p>Heavy fuel oil - Nairobi</p></td>
+</tr>
+<tr class="row-even"><td><p>HYD</p></td>
+<td><p>Hydro</p></td>
+</tr>
+<tr class="row-odd"><td><p>INDCOA</p></td>
+<td><p>Industry - Coal</p></td>
+</tr>
+<tr class="row-even"><td><p>INDDSL</p></td>
+<td><p>Industry - Diesel</p></td>
+</tr>
+<tr class="row-odd"><td><p>INDELC</p></td>
+<td><p>Industry - Electricity</p></td>
+</tr>
+<tr class="row-even"><td><p>INDHFO</p></td>
+<td><p>Industry - Heavy fuel oil</p></td>
+</tr>
+<tr class="row-odd"><td><p>INDKER</p></td>
+<td><p>Industry - Kerosene</p></td>
+</tr>
+<tr class="row-even"><td><p>INDLPG</p></td>
+<td><p>Industry - LPG</p></td>
+</tr>
+<tr class="row-odd"><td><p>JFL</p></td>
+<td><p>Jet fuel</p></td>
+</tr>
+<tr class="row-even"><td><p>KER</p></td>
+<td><p>Kerosene</p></td>
+</tr>
+<tr class="row-odd"><td><p>LFOELD</p></td>
+<td><p>Light fuel oil - Eldoret</p></td>
+</tr>
+<tr class="row-even"><td><p>LPG</p></td>
+<td><p>Liquefied petroleum gas</p></td>
+</tr>
+<tr class="row-odd"><td><p>NGS</p></td>
+<td><p>Natural gas</p></td>
+</tr>
+<tr class="row-even"><td><p>RESBGS</p></td>
+<td><p>Residential - Biogas</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESBIO</p></td>
+<td><p>Residential - Biomass</p></td>
+</tr>
+<tr class="row-even"><td><p>RESCHC</p></td>
+<td><p>Residential - Charcoal</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESELC</p></td>
+<td><p>Residential - Electricity</p></td>
+</tr>
+<tr class="row-even"><td><p>RESETH</p></td>
+<td><p>Residential - Ethanol</p></td>
+</tr>
+<tr class="row-odd"><td><p>RESKER</p></td>
+<td><p>Residential - Kerosene</p></td>
+</tr>
+<tr class="row-even"><td><p>RESLPG</p></td>
+<td><p>Residential - LPG</p></td>
+</tr>
+<tr class="row-odd"><td><p>SOL</p></td>
+<td><p>Solar</p></td>
+</tr>
+<tr class="row-even"><td><p>TRADSL</p></td>
+<td><p>Transport - Diesel</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRAELC</p></td>
+<td><p>Transport - Electricity</p></td>
+</tr>
+<tr class="row-even"><td><p>TRAGSL</p></td>
+<td><p>Transport - Gasoline</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRAHFO</p></td>
+<td><p>Transport - Heavy fuel oil</p></td>
+</tr>
+<tr class="row-even"><td><p>TRAJFL</p></td>
+<td><p>Transport - Jet fuel</p></td>
+</tr>
+<tr class="row-odd"><td><p>URN</p></td>
+<td><p>Uranium</p></td>
+</tr>
+<tr class="row-even"><td><p>WND</p></td>
+<td><p>Wind</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="technologies-and-modes-of-operation">
+<h3>Technologies and modes of operation<a class="headerlink" href="#technologies-and-modes-of-operation" title="Permalink to this heading"></a></h3>
+<p>All technologies considered in the model are listed in the technologies set. Imported resources and fuels (IMP) and local resources (MIN) are characterized by technologies with only an output fuel. The power sector is represented at a single power plant level (PWR technologies). The transmission (PWRTRN) and distribution PWRDIST) grids are represented by a single technology, to account for losses. Each sector is delimitated by the fuel-technology mix technologies (FTE), one per each fuel available to the sector. The function of FTE technologies is to facilitate the postprocessing of the results, as well as to account for sector-specific costs and efficiencies not explicitly modelled. Each sector has then its own technologies, identified by a specific prefix, that convert the available fuels in the relevant sectoral demand. Currently, only one mode of operation is considered per each technology.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AGRDSL001</p></td>
+<td><p>Agriculture machinery - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>AGRDSL005</p></td>
+<td><p>Agriculture machinery - Diesel - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>AGRGSL001</p></td>
+<td><p>Agriculture machinery - Gasoline - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>AGRGSL005</p></td>
+<td><p>Agriculture machinery - Gasoline - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>AGRHFO001</p></td>
+<td><p>Agriculture machinery - Heavy fuel oil- Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>BACKSTOP</p></td>
+<td><p>Backstop technology - Power sector</p></td>
+</tr>
+<tr class="row-even"><td><p>CCOELC001</p></td>
+<td><p>Commercial - Other electricity demand - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>EXPELC</p></td>
+<td><p>Electricity - Exports</p></td>
+</tr>
+<tr class="row-even"><td><p>FTEAGRDSL</p></td>
+<td><p>Fuel tech mix - Agriculture - Diesel</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTEAGRGSL</p></td>
+<td><p>Fuel tech mix - Agriculture - Gasoline</p></td>
+</tr>
+<tr class="row-even"><td><p>FTEAGRHFO</p></td>
+<td><p>Fuel tech mix - Agriculture - HFO</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTECOMELC</p></td>
+<td><p>Fuel tech mix - Commercial - Electricity</p></td>
+</tr>
+<tr class="row-even"><td><p>FTEINDCOA</p></td>
+<td><p>Fuel tech mix - Industry - Coal</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTEINDDSL</p></td>
+<td><p>Fuel tech mix - Industry - Diesel</p></td>
+</tr>
+<tr class="row-even"><td><p>FTEINDELC</p></td>
+<td><p>Fuel tech mix - Industry - Electricity</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTEINDHFO</p></td>
+<td><p>Fuel tech mix - Industry - Heavy fuel oil</p></td>
+</tr>
+<tr class="row-even"><td><p>FTEINDKER</p></td>
+<td><p>Fuel tech mix - Industry - Kerosene</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTEINDLPG</p></td>
+<td><p>Fuel tech mix - Industry - LPG</p></td>
+</tr>
+<tr class="row-even"><td><p>FTERESBGS</p></td>
+<td><p>Fuel tech mix - Residential - Biogas</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTERESBIO</p></td>
+<td><p>Fuel tech mix - Residential - Solid biomass</p></td>
+</tr>
+<tr class="row-even"><td><p>FTERESCHC</p></td>
+<td><p>Fuel tech mix - Residential - Charcoal</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTERESELC</p></td>
+<td><p>Fuel tech mix - Residential - Electricity</p></td>
+</tr>
+<tr class="row-even"><td><p>FTERESETH</p></td>
+<td><p>Fuel tech mix - Residential - Ethanol</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTERESKER</p></td>
+<td><p>Fuel tech mix - Residential - Kerosene</p></td>
+</tr>
+<tr class="row-even"><td><p>FTERESLPG</p></td>
+<td><p>Fuel tech mix - Residential - LPG</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTETRADSL</p></td>
+<td><p>Fuel tech mix - Transport - Diesel</p></td>
+</tr>
+<tr class="row-even"><td><p>FTETRAELC</p></td>
+<td><p>Fuel tech mix - Transport - Electricity</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTETRAGSL</p></td>
+<td><p>Fuel tech mix - Transport - Gasoline</p></td>
+</tr>
+<tr class="row-even"><td><p>FTETRAHFO</p></td>
+<td><p>Fuel tech mix - Transport - Heavy shipping oil</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTETRAJFL</p></td>
+<td><p>Fuel tech mix - Transport - Jet fuel</p></td>
+</tr>
+<tr class="row-even"><td><p>ICMCOA001</p></td>
+<td><p>Industry non-metallic minerals and cement - Coal - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICMCOA005</p></td>
+<td><p>Industry non-metallic minerals and cement - Coal - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>IFPELC001</p></td>
+<td><p>Industry food and food processing - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPBIO</p></td>
+<td><p>Biomass - Imports</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPCOA</p></td>
+<td><p>Coal - Imports</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPDSL</p></td>
+<td><p>Diesel for transportation sector - Imports</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPELC001</p></td>
+<td><p>Electricity - Imports from Ethiopia</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPELC002</p></td>
+<td><p>Electricity - Imports from Uganda</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPGSL</p></td>
+<td><p>Gasoline for transportation sector - Imports</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPHFOMOM</p></td>
+<td><p>HFO - Import to Mombasa</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPHFONAI</p></td>
+<td><p>HFO - Import to Nairobi</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPJFL</p></td>
+<td><p>Jet fuel for transportation sector - Imports</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPKER</p></td>
+<td><p>Kerosene - Imports</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPLFOELD</p></td>
+<td><p>LFO - Import to Eldoret</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPLPG</p></td>
+<td><p>LPG - Imports</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPNGS</p></td>
+<td><p>Natural gas - Imports</p></td>
+</tr>
+<tr class="row-even"><td><p>IMPOIL</p></td>
+<td><p>Oil - Imports</p></td>
+</tr>
+<tr class="row-odd"><td><p>IMPURN</p></td>
+<td><p>Uranium - Imports</p></td>
+</tr>
+<tr class="row-even"><td><p>IOIDSL001</p></td>
+<td><p>Industry other industry - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>IOIELC001</p></td>
+<td><p>Industry other industry - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>IOIHFO001</p></td>
+<td><p>Industry other industry - Heavy fuel oil - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>IOIKER001</p></td>
+<td><p>Industry other industry - Kerosene - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>IOILPG001</p></td>
+<td><p>Industry other industry - LPG - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>MINBGS</p></td>
+<td><p>Biogas - Domestic</p></td>
+</tr>
+<tr class="row-even"><td><p>MINBIO</p></td>
+<td><p>Biomass - Domestic</p></td>
+</tr>
+<tr class="row-odd"><td><p>MINGEO</p></td>
+<td><p>Goethermal resource</p></td>
+</tr>
+<tr class="row-even"><td><p>MINHYD</p></td>
+<td><p>Hydro resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>MINSOL</p></td>
+<td><p>Solar resource</p></td>
+</tr>
+<tr class="row-even"><td><p>MINURN</p></td>
+<td><p>Uranium - Domestic</p></td>
+</tr>
+<tr class="row-odd"><td><p>MINWND</p></td>
+<td><p>Wind resource</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRBIO001</p></td>
+<td><p>Biomass powerplant (distribution level)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRCOA001</p></td>
+<td><p>Coal - Power plant 1</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRCOA002</p></td>
+<td><p>Coal - Power plant 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRCOA003</p></td>
+<td><p>Coal - Power plant 3</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRDIST</p></td>
+<td><p>Distribution grid</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO001</p></td>
+<td><p>Geothermal - Power plant 1</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO002</p></td>
+<td><p>Geothermal - Power plant 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO003</p></td>
+<td><p>Geothermal - Power plant 3</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO004</p></td>
+<td><p>Geothermal - Power plant 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO005</p></td>
+<td><p>Geothermal - Power plant 5</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO006</p></td>
+<td><p>Geothermal - Power plant 6</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO007</p></td>
+<td><p>Geothermal - Power plant 7</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO008</p></td>
+<td><p>Geothermal - Power plant 8</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO009</p></td>
+<td><p>Geothermal - Power plant 9</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO010</p></td>
+<td><p>Geothermal - Power plant 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO011</p></td>
+<td><p>Geothermal - Power plant 11</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO012</p></td>
+<td><p>Geothermal - Power plant 12</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO013</p></td>
+<td><p>Geothermal - Power plant 13</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO014</p></td>
+<td><p>Geothermal - Power plant 14</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO015</p></td>
+<td><p>Geothermal - Power plant 15</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO016</p></td>
+<td><p>Geothermal - Power plant 16</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO017</p></td>
+<td><p>Geothermal - Power plant 17</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO018</p></td>
+<td><p>Geothermal - Power plant 18</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO019</p></td>
+<td><p>Geothermal - Power plant 19</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO020</p></td>
+<td><p>Geothermal - Power plant 20</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO021</p></td>
+<td><p>Geothermal - Power plant 21</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO022</p></td>
+<td><p>Geothermal - Power plant 22</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO023</p></td>
+<td><p>Geothermal - Power plant 23</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO024</p></td>
+<td><p>Geothermal - Power plant 24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO025</p></td>
+<td><p>Geothermal - Power plant 25</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO026</p></td>
+<td><p>Geothermal - Power plant 26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO027</p></td>
+<td><p>Geothermal - Power plant 27</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO028</p></td>
+<td><p>Geothermal - Power plant 28</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO029</p></td>
+<td><p>Geothermal - Power plant 29</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO030</p></td>
+<td><p>Geothermal - Power plant 30</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO031</p></td>
+<td><p>Geothermal - Power plant 31</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO032</p></td>
+<td><p>Geothermal - Power plant 32</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO033</p></td>
+<td><p>Geothermal - Power plant 33</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO034</p></td>
+<td><p>Geothermal - Power plant 34</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO035</p></td>
+<td><p>Geothermal - Power plant 35</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO036</p></td>
+<td><p>Geothermal - Power plant 36</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO037</p></td>
+<td><p>Geothermal - Power plant 37</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO038</p></td>
+<td><p>Geothermal - Power plant 38</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO039</p></td>
+<td><p>Geothermal - Power plant 39</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO040</p></td>
+<td><p>Geothermal - Power plant 40</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO041</p></td>
+<td><p>Geothermal - Power plant 41</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO042</p></td>
+<td><p>Geothermal - Power plant 42</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO043</p></td>
+<td><p>Geothermal - Power plant 43</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO044</p></td>
+<td><p>Geothermal - Power plant 44</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO045</p></td>
+<td><p>Geothermal - Power plant 45</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO046</p></td>
+<td><p>Geothermal - Power plant 46</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO047</p></td>
+<td><p>Geothermal - Power plant 47</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO048</p></td>
+<td><p>Geothermal - Power plant 48</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO049</p></td>
+<td><p>Geothermal - Power plant 49</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO050</p></td>
+<td><p>Geothermal - Power plant 50</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO051</p></td>
+<td><p>Geothermal - Power plant 51</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRGEO101</p></td>
+<td><p>Geothermal - Power plant 52</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRGEO102</p></td>
+<td><p>Geothermal - Power plant 53</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHFO001</p></td>
+<td><p>HFO - Power plant 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHFO002</p></td>
+<td><p>HFO - Power plant 2</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHFO003</p></td>
+<td><p>HFO - Power plant 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHFO004</p></td>
+<td><p>HFO - Power plant 4</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHFO005</p></td>
+<td><p>HFO - Power plant 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHFO006</p></td>
+<td><p>HFO - Power plant 6</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHFO007</p></td>
+<td><p>HFO - Power plant 7</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHFO008</p></td>
+<td><p>HFO - Power plant 8</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHFO009</p></td>
+<td><p>HFO - Power plant 9</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD001</p></td>
+<td><p>Hydro - Power plant 1</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD002</p></td>
+<td><p>Hydro - Power plant 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD003</p></td>
+<td><p>Hydro - Power plant 3</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD004</p></td>
+<td><p>Hydro - Power plant 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD005</p></td>
+<td><p>Hydro - Power plant 5</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD006</p></td>
+<td><p>Hydro - Power plant 6</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD007</p></td>
+<td><p>Hydro - Power plant 7</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD008</p></td>
+<td><p>Hydro - Power plant 8</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD009</p></td>
+<td><p>Hydro - Power plant 9</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD010</p></td>
+<td><p>Hydro - Power plant 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD011</p></td>
+<td><p>Hydro - Power plant 11</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD012</p></td>
+<td><p>Hydro - Power plant 12</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD013</p></td>
+<td><p>Hydro - Power plant 13</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD014</p></td>
+<td><p>Hydro - Power plant 14</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD015</p></td>
+<td><p>Hydro - Power plant 15</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRHYD016</p></td>
+<td><p>Hydro - Power plant 16</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRHYD101</p></td>
+<td><p>Hydro - Power plant 17</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRLFO001</p></td>
+<td><p>LFO - Power plant 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRLFO002</p></td>
+<td><p>LFO - Power plant 2</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRLFO003</p></td>
+<td><p>LFO - Power plant 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS001</p></td>
+<td><p>Natural Gas - Power plant 1</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS002</p></td>
+<td><p>Natural Gas - Power plant 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS003</p></td>
+<td><p>Natural Gas - Power plant 3</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS004</p></td>
+<td><p>Natural Gas - Power plant 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS005</p></td>
+<td><p>Natural Gas - Power plant 5</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS006</p></td>
+<td><p>Natural Gas - Power plant 6</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS007</p></td>
+<td><p>Natural Gas - Power plant 7</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS008</p></td>
+<td><p>Natural Gas - Power plant 8</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS009</p></td>
+<td><p>Natural Gas - Power plant 9</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS010</p></td>
+<td><p>Natural Gas - Power plant 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS011</p></td>
+<td><p>Natural Gas - Power plant 11</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS012</p></td>
+<td><p>Natural Gas - Power plant 12</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS013</p></td>
+<td><p>Natural Gas - Power plant 13</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS014</p></td>
+<td><p>Natural Gas - Power plant 14</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS015</p></td>
+<td><p>Natural Gas - Power plant 15</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS016</p></td>
+<td><p>Natural Gas - Power plant 16</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRNGS017</p></td>
+<td><p>Natural Gas - Power plant 17</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRNGS018</p></td>
+<td><p>Natural Gas - Power plant 18</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL001</p></td>
+<td><p>Solar - Power plant 1</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL002</p></td>
+<td><p>Solar - Power plant 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL003</p></td>
+<td><p>Solar - Power plant 3</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL004</p></td>
+<td><p>Solar - Power plant 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL005</p></td>
+<td><p>Solar - Power plant 5</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL006</p></td>
+<td><p>Solar - Power plant 6</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL007</p></td>
+<td><p>Solar - Power plant 7</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL008</p></td>
+<td><p>Solar - Power plant 8</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL009</p></td>
+<td><p>Solar - Power plant 9</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL010</p></td>
+<td><p>Solar - Power plant 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL011</p></td>
+<td><p>Solar - Power plant 11</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL012</p></td>
+<td><p>Solar - Power plant 12</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL013</p></td>
+<td><p>Solar - Power plant 13</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL014</p></td>
+<td><p>Solar - Power plant 14</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL015</p></td>
+<td><p>Solar - Power plant 15</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRSOL016</p></td>
+<td><p>Solar - Power plant 16</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRSOL101</p></td>
+<td><p>Solar - Power plant 17</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRTRN</p></td>
+<td><p>Transmission grid</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRURN001</p></td>
+<td><p>Nuclear - Power plant 1</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRURN002</p></td>
+<td><p>Nuclear - Power plant 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRURN003</p></td>
+<td><p>Nuclear - Power plant 3</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND001</p></td>
+<td><p>Wind - Power plant 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND002</p></td>
+<td><p>Wind - Power plant 2</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND003</p></td>
+<td><p>Wind - Power plant 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND004</p></td>
+<td><p>Wind - Power plant 4</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND005</p></td>
+<td><p>Wind - Power plant 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND006</p></td>
+<td><p>Wind - Power plant 6</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND007</p></td>
+<td><p>Wind - Power plant 7</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND008</p></td>
+<td><p>Wind - Power plant 8</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND009</p></td>
+<td><p>Wind - Power plant 9</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND010</p></td>
+<td><p>Wind - Power plant 10</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND011</p></td>
+<td><p>Wind - Power plant 11</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND012</p></td>
+<td><p>Wind - Power plant 12</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND013</p></td>
+<td><p>Wind - Power plant 13</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND014</p></td>
+<td><p>Wind - Power plant 14</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND015</p></td>
+<td><p>Wind - Power plant 15</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND016</p></td>
+<td><p>Wind - Power plant 16</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND017</p></td>
+<td><p>Wind - Power plant 17</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND018</p></td>
+<td><p>Wind - Power plant 18</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND019</p></td>
+<td><p>Wind - Power plant 19</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND020</p></td>
+<td><p>Wind - Power plant 20</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND021</p></td>
+<td><p>Wind - Power plant 21</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND022</p></td>
+<td><p>Wind - Power plant 22</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND023</p></td>
+<td><p>Wind - Power plant 23</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND024</p></td>
+<td><p>Wind - Power plant 24</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND025</p></td>
+<td><p>Wind - Power plant 25</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND026</p></td>
+<td><p>Wind - Power plant 26</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND027</p></td>
+<td><p>Wind - Power plant 27</p></td>
+</tr>
+<tr class="row-odd"><td><p>PWRWND028</p></td>
+<td><p>Wind - Power plant 28</p></td>
+</tr>
+<tr class="row-even"><td><p>PWRWND101</p></td>
+<td><p>Wind - Power plant 29</p></td>
+</tr>
+<tr class="row-odd"><td><p>RC1ELC001</p></td>
+<td><p>Residential - Cooling demand urban - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>RC2ELC001</p></td>
+<td><p>Residential - Cooling demand rural - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK1BGS001</p></td>
+<td><p>Residential - Cooking - Urban - Biogas</p></td>
+</tr>
+<tr class="row-even"><td><p>RK1BIO001</p></td>
+<td><p>Residential - Cooking - Urban - Three stone open fire</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK1BIO005</p></td>
+<td><p>Residential - Cooking - Urban - Improved firewood stoves (e.g., Kuni mbili stove,manufactured firewoodstoves, gasifier stoves)</p></td>
+</tr>
+<tr class="row-even"><td><p>RK1CHC001</p></td>
+<td><p>Residential - Cooking - Urban - Metallic charcoal stove</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK1CHC005</p></td>
+<td><p>Residential - Cooking - Urban - Improved Charcoal Stove (ceramic lined stoves)</p></td>
+</tr>
+<tr class="row-even"><td><p>RK1ELC001</p></td>
+<td><p>Residential - Cooking - Urban - Electric coil</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK1ELC005</p></td>
+<td><p>Residential - Cooking - Urban - Electric induction stove</p></td>
+</tr>
+<tr class="row-even"><td><p>RK1ELC100</p></td>
+<td><p>Residential - Cooking - Urban - Electric Pressure Cooker</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK1ETH001</p></td>
+<td><p>Residential - Cooking - Urban - Biofuel stove (e.g. KOKO)</p></td>
+</tr>
+<tr class="row-even"><td><p>RK1KER001</p></td>
+<td><p>Residential - Cooking - Urban - Kerosene stove</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK1LPG001</p></td>
+<td><p>Residential - Cooking - Urban - LPG stove</p></td>
+</tr>
+<tr class="row-even"><td><p>RK2BGS001</p></td>
+<td><p>Residential - Cooking - Rural - Biogas</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK2BIO001</p></td>
+<td><p>Residential - Cooking - Rural - Three stone open fire</p></td>
+</tr>
+<tr class="row-even"><td><p>RK2BIO005</p></td>
+<td><p>Residential - Cooking - Rural - Improved firewood stoves (e.g., Kuni mbili stove,manufactured firewoodstoves, gasifier stoves)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK2CHC001</p></td>
+<td><p>Residential - Cooking - Rural - Metallic charcoal stove</p></td>
+</tr>
+<tr class="row-even"><td><p>RK2CHC005</p></td>
+<td><p>Residential - Cooking - Rural - Improved Charcoal Stove (ceramic lined stoves)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK2ELC001</p></td>
+<td><p>Residential - Cooking - Rural - Electric coil</p></td>
+</tr>
+<tr class="row-even"><td><p>RK2ELC005</p></td>
+<td><p>Residential - Cooking - Rural - Electric induction stove</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK2ELC100</p></td>
+<td><p>Residential - Cooking - Rural - Electric Pressure Cooker</p></td>
+</tr>
+<tr class="row-even"><td><p>RK2ETH001</p></td>
+<td><p>Residential - Cooking - Rural - Biofuel stove (e.g. KOKO)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RK2KER001</p></td>
+<td><p>Residential - Cooking - Rural - Kerosene stove</p></td>
+</tr>
+<tr class="row-even"><td><p>RK2LPG001</p></td>
+<td><p>Residential - Cooking - Rural - LPG stove</p></td>
+</tr>
+<tr class="row-odd"><td><p>RL1ELC001</p></td>
+<td><p>Residential - Lighting urban - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>RL1ELC005</p></td>
+<td><p>Residential - Lighting urban - Electricity - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>RL1KER001</p></td>
+<td><p>Residential - Lighting urban - Kerosene - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>RL1KER005</p></td>
+<td><p>Residential - Lighting urban - Kerosene - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>RL2ELC001</p></td>
+<td><p>Residential - Lighting rural - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>RL2ELC005</p></td>
+<td><p>Residential - Lighting rural - Electricity - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>RL2KER001</p></td>
+<td><p>Residential - Lighting rural - Kerosene - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>RL2KER005</p></td>
+<td><p>Residential - Lighting rural - Kerosene - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>RO1ELC001</p></td>
+<td><p>Residential - Other electricity demand urban - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>RO1ELC005</p></td>
+<td><p>Residential - Other electricity demand urban - Electricity - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>RO2ELC001</p></td>
+<td><p>Residential - Other electricity demand rural - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>RO2ELC005</p></td>
+<td><p>Residential - Other electricity demand rural - Electricity - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TAIJFL001</p></td>
+<td><p>Transport - Aviation - Jet fuel - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRBDSL001</p></td>
+<td><p>Transport - Bus - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRBDSL005</p></td>
+<td><p>Transport - Bus - Diesel - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRBDSL010</p></td>
+<td><p>Transport - Bus - Diesel - High efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRBELC001</p></td>
+<td><p>Transport - Bus - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRBGSL001</p></td>
+<td><p>Transport - Bus - Gasoline - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRBGSL005</p></td>
+<td><p>Transport - Bus - Gasoline - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRBGSL010</p></td>
+<td><p>Transport - Bus - Gasoline - High efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRCDSL001</p></td>
+<td><p>Transport - Passenger car - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRCDSL005</p></td>
+<td><p>Transport - Passenger car - Diesel - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRCDSL010</p></td>
+<td><p>Transport - Passenger car - Diesel - High efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRCELC001</p></td>
+<td><p>Transport - Passenger car - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRCGSL001</p></td>
+<td><p>Transport - Passenger car - Gasoline - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRCGSL005</p></td>
+<td><p>Transport - Passenger car - Gasoline - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRCGSL010</p></td>
+<td><p>Transport - Passenger car - Gasoline - High efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRHDSL001</p></td>
+<td><p>Transport - Heavy goods vehicle - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRHDSL005</p></td>
+<td><p>Transport - Heavy goods vehicle - Diesel - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRHDSL010</p></td>
+<td><p>Transport - Heavy goods vehicle - Diesel - High efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRHGSL001</p></td>
+<td><p>Transport - Heavy goods vehicle - Gasoline - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRHGSL005</p></td>
+<td><p>Transport - Heavy goods vehicle - Gasoline - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRHGSL010</p></td>
+<td><p>Transport - Heavy goods vehicle - Gasoline - High efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRLDSL001</p></td>
+<td><p>Transport - Light commerical vehicle - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRLDSL005</p></td>
+<td><p>Transport - Light commerical vehicle - Diesel - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRLDSL010</p></td>
+<td><p>Transport - Light commerical vehicle - Diesel - High efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRLELC005</p></td>
+<td><p>Transport - Light commercial vehicle - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRLGSL001</p></td>
+<td><p>Transport - Light commerical vehicle - Gasoline - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRLGSL005</p></td>
+<td><p>Transport - Light commerical vehicle - Gasoline - Improved efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRLGSL010</p></td>
+<td><p>Transport - Light commerical vehicle - Gasoline - High efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRMDSL001</p></td>
+<td><p>Transport - Motorbike/two-wheeler - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRMDSL005</p></td>
+<td><p>Transport - Motorbike/two-wheeler - Diesel - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRMDSL010</p></td>
+<td><p>Transport - Motorbike/two-wheeler - Diesel - High efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRMELC001</p></td>
+<td><p>Transport - Motorbike/two-wheeler - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRMGSL001</p></td>
+<td><p>Transport - Motorbike/two-wheeler - Gasoline - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TRMGSL005</p></td>
+<td><p>Transport - Motorbike/two-wheeler - Gasoline - Improved efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRMGSL010</p></td>
+<td><p>Transport - Motorbike/two-wheeler - Gasoline - High efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TTRDSL001</p></td>
+<td><p>Transport - Trains (Rail) - Diesel - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>TTRELC001</p></td>
+<td><p>Transport - Trains (Rail) - Electricity - Base efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p>TWDHFO001</p></td>
+<td><p>Transport - Shipping - Heavy shipping oil - Base efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p>UPSCHC</p></td>
+<td><p>Upstream charcoal production</p></td>
+</tr>
+<tr class="row-even"><td><p>UPSETH</p></td>
+<td><p>Upstream ethanol production</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="emissions">
+<h3>Emissions<a class="headerlink" href="#emissions" title="Permalink to this heading"></a></h3>
+<p>The current version of the model only accounts for CO<sub>2</sub> emissions. The set includes both a generic CO<sub>2</sub> emission entry, as well as sectoral specific CO<sub>2</sub> emissions.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CO2</p></td>
+<td><p>Overall carbon dioxide emissions</p></td>
+</tr>
+<tr class="row-odd"><td><p>CO2agr</p></td>
+<td><p>Carbon dioxide emissions agricultural sector</p></td>
+</tr>
+<tr class="row-even"><td><p>CO2com</p></td>
+<td><p>Carbon dioxide emissions commercial sector</p></td>
+</tr>
+<tr class="row-odd"><td><p>CO2ind</p></td>
+<td><p>Carbon dioxide emissions industry</p></td>
+</tr>
+<tr class="row-even"><td><p>CO2res</p></td>
+<td><p>Carbon dioxide emissions residential sector</p></td>
+</tr>
+<tr class="row-odd"><td><p>CO2tra</p></td>
+<td><p>Carbon dioxide emissions transports sector</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="reference-energy-system">
+<h2>1.3 Reference energy system<a class="headerlink" href="#reference-energy-system" title="Permalink to this heading"></a></h2>
+<p>An overview of the entire reference energy system is given in the following figure. Starting from the left hand-side, each block represents one or two technologies, depending if the commodity is locally extracted or imported. The top part of the scheme describes the power sector. Each block can represent up to thirty power plants, as in the model they are described at a single plant level. Power imports and exports are at a transmission level, while the electricity is distributed to the different sectors after the transmission and distribution grids, where losses are accounted for. Beneath the uranium imports the fuels only used at end sector are listed, as well as the upstream charcoal and ethanol technologies, that represent the conversion from raw biomass to the end fuel. Each sector is then represented singularly, each one bounded by the  FTE technologies, with its sectoral-sepcific fuels, the relevant technologies and its energy service demands.</p>
+<a class="reference internal image-reference" href="../_images/wesm_res.svg"><img alt="Reference energy system" src="../_images/wesm_res.svg" width="1200" /></a>
+</section>
+<section id="sectors">
+<h2>1.4 Sectors<a class="headerlink" href="#sectors" title="Permalink to this heading"></a></h2>
+<section id="agriculture">
+<h3>Agriculture<a class="headerlink" href="#agriculture" title="Permalink to this heading"></a></h3>
+<p>The only demand type considered for the agricultural sector is a generic demand type, representing fuel cconsumption to operate the agricultural machinery. There is one technology option per fuel type, and fuels considered are diesel, gasoline and heavy fuel oil.</p>
+<a class="reference internal image-reference" href="../_images/wesm_agriculture.svg"><img alt="Agricultural sector" src="../_images/wesm_agriculture.svg" width="1200" /></a>
+</section>
+<section id="commercial-sector">
+<h3>Commercial sector<a class="headerlink" href="#commercial-sector" title="Permalink to this heading"></a></h3>
+<p>A generic demand is also considered for the commercial sector. In this case, only electrical appliances are considered as a technology option to cover the demand, as the generic demand only consists of electricity.</p>
+<a class="reference internal image-reference" href="../_images/wesm_commercial.svg"><img alt="Commercial sector" src="../_images/wesm_commercial.svg" width="1200" /></a>
+</section>
+<section id="industry">
+<h3>Industry<a class="headerlink" href="#industry" title="Permalink to this heading"></a></h3>
+<p>The industrial sector is slightly more complex than the first two. Three different types of demand are considered: non metals and cement, food processing, and other processes. The demand for the non metals and cement subsector can only be covered by technologies using coal as fuel. Similarly, only electricty is considered as an option for the food processing subsector. The other processes subsector includes several different processes, including steel production. Technologies considered are based on various fuels inputs, including coal, electricity, diesel, hevy fuel oil and kerosene.</p>
+<a class="reference internal image-reference" href="../_images/wesm_industry.svg"><img alt="Industrial sector" src="../_images/wesm_industry.svg" width="1200" /></a>
+</section>
+<section id="residential-sector">
+<h3>Residential sector<a class="headerlink" href="#residential-sector" title="Permalink to this heading"></a></h3>
+<p>The residential sector is the most complex sector included in the model, as it also represents the highest share of the final energy consumption in the country. Demands are divided between lighting, cooling, cooking and other. Each demand is split between urban and rural areas, to account for the significant differences in the two areas. Cooling and other demands can only be satisfied by technologies using electricity as an input fuel. Lighting options include both electricity and kerosene. Finally, the cooking sector offers numerous technology options, including diffent ones for the same type of fuel. For examples, e-cooking technologies considered are coil, induction and electric pressure cookers, while wood stoves can be either traditional or improved, as in the case of charcoal.</p>
+<a class="reference internal image-reference" href="../_images/wesm_residential.svg"><img alt="Residential sector" src="../_images/wesm_residential.svg" width="1200" /></a>
+</section>
+<section id="transports">
+<h3>Transports<a class="headerlink" href="#transports" title="Permalink to this heading"></a></h3>
+<p>Transports include national aviation and shipping, the railway system and road transport. The latter is divided between buses, cars, freight, light commercial vehicles, and two- and three-wheelers. Each of the subsector of road transport has three technology options, namely diesel, gasoline, and electricity, with the excpetion of freight transport, where only diesel and gasoline are considered. Aviation demand can only be satisfied by technologies using jet fuel, shipping by technologies using heavy fuel oil and only electric trains are considered.</p>
+<a class="reference internal image-reference" href="../_images/wesm_transports.svg"><img alt="Transport sector" src="../_images/wesm_transports.svg" width="1200" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="wesm.html" class="btn btn-neutral float-left" title="Whole energy system model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="demands.html" class="btn btn-neutral float-right" title="2. Demand projections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
-    
+  <hr/>
 
-    
-  </body>
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Climate Compatible Growth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

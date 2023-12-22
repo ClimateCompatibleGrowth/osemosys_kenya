@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Demand projections &mdash; OSeMOSYS Kenya 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Data inputs" href="datainputs.html" />
+    <link rel="prev" title="1. Model structure" href="modelstructure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OSeMOSYS Kenya
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psm/psm.html">Power system model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="wesm.html">Whole energy system model</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modelstructure.html">1. Model structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Demand projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#current-energy-balance">2.1 Current energy balance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.2 Demand projections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sectors">2.3 Sectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agriculture">Agriculture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commercial-sector">Commercial sector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#industry">Industry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#residential-sector">Residential sector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transports">Transports</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datainputs.html">3. Data inputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../annex/annex.html">Annexes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OSeMOSYS Kenya</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="wesm.html">Whole energy system model</a></li>
+      <li class="breadcrumb-item active">2. Demand projections</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wesm/demands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="demand-projections">
+<h1>2. Demand projections<a class="headerlink" href="#demand-projections" title="Permalink to this heading"></a></h1>
+<p>Demand curves are obtained outside the OSeMOSYS model and then given to it as input. A demand workbook has been defined to obtain the energy service demand values for each sector. An overview of the data sources and the assumptions behind the demand workbook is given in the following. Section 2.1 describes how the initial values, for 2019, have been obtained. Section 2.2 illustrates the available demand drivers and Section 2.3 outlines more in detail how each sectorial demand has been defined and projections have been done.</p>
+<section id="current-energy-balance">
+<h2>2.1 Current energy balance<a class="headerlink" href="#current-energy-balance" title="Permalink to this heading"></a></h2>
+<p>An energy balance tracks the flow of energy within a geographical area in a given period . This sheet gives a breakdown of the different fuels in terms of supply defined as the Total Energy Supply (TES) and consumption defined as the Total final consumption (TFC).
+The Total energy supply (TES) was given as a sum of what was produced locally in the country, imports (+), exports (-), marine and aviation bunkers treated as exports and stock changes that could be positive or negative. The TFC was given as a sum total of transfers (change in commodity balance through a change in use) that could be positive or negative, statistical differences indicating differences between supply and demand (positive or negative), Transformation processes which excluded all fuels used for the process and includes the product of transformation, that was given as a sum of Electricity plants (main producers – generating electricity for sale as their main business), Electricity plants (autoproducers – generating electricity for their own needs but could sell any surplus), Other transformation that does not include electricity, energy industry own use for example consumption of electricity in power plants (-) and losses occurring during transmission and distribution of electricity and gas (-) .
+The energy balance was based on the International Energy Agency (IEA) 2019 energy balance for Kenya. The unit of energy was converted from thousand tonnes of oil equivalent (ktoe) to petajoules (PJ)
+Consumption for each fuel is broken down into various sectors that added up to the total final consumption computed for the specific fuel.
+The sectors included: Residential, Industry, Commerce &amp; Service, Agriculture, Fisheries, Other, Transport, Non-Energy Use</p>
+</section>
+<section id="id1">
+<h2>2.2 Demand projections<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>The energy service demand projections was done drawn from each sector represented from the 2019 energy balance. The relevant projection drivers included population (Mln people for three different scenarios – High, Central and Low), urbanization share, urban and rural household occupancy, household electricity use (Central and Low scenarios), Gross Domestic Product (GDP – High, Central, Low scenarios), Gross Value Added (GVA – High, Central, Low scenarios) contribution per relevant sector.
+The table shows how each projection driver was applied to the service demands described.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sector</p></th>
+<th class="head"><p>Energy service demand</p></th>
+<th class="head"><p>Driver</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Agriculture</p></td>
+<td><p>Agriculture demand</p></td>
+<td><p>Agriculture sector GVA</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Commercial</p></td>
+<td><p>Electrical appliance (inc. cooling)</p></td>
+<td><p>Commercial GVA</p></td>
+<td><p>GVA projections based on World Bank data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Heating</p></td>
+<td><p>Commercial GVA</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Industry</p></td>
+<td><p>Electrical appliances</p></td>
+<td><p>Industry GVA - manufacturing, other</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>High temp. heat</p></td>
+<td><p>Industry GVA - manufacturing, other</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Low temp. heat</p></td>
+<td><p>Industry GVA - manufacturing, other</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Residential</p></td>
+<td><p>Lighting</p></td>
+<td><p>Households, household electricity use</p></td>
+<td><p>Household (HH) occupancy based on estimated growth projections. Can consider using LCPDP HH size projections based on KNBS data. HH electricity use assumes 100% universal access. HH electricity use can be based on LCPDP demand forecast projections on domestic consumption .</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Cooling</p></td>
+<td><p>Households, household electricity use</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Other appliances</p></td>
+<td><p>Households, household electricity use</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Cooking</p></td>
+<td><p>Households</p></td>
+<td><p>HH projections based on Population projections from UN World Population Prospectus 2022 data and World Urbanization Prospects, 2018 Revision and HH occupancy. HH projections can also be based on LCPDP projections using the same source but picking growth rates to project KNBS 2019 Census population statistics.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Heating, Other</p></td>
+<td><p>Households</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Transports</p></td>
+<td><p>Passenger cars</p></td>
+<td><p>Population, GDP / cap</p></td>
+<td><p>Population projections from UN World Population Prospectus 2022 data. Population projections can also be based on LCPDP projections using the same source but picking growth rates to project KNBS 2019 Census statistics. GDP projections based on World Bank data. GDP projections can also be based on LCPDP projections that combines KNBS quarterly data and Budget Review and Outlook Paper (BROP) 2023.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Passenger 2&amp;3 wheelers</p></td>
+<td><p>Population</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Passenger Bus</p></td>
+<td><p>Urban population</p></td>
+<td><p>Urban population projections based on World Urbanization Prospects, 2018 Revision and HH occupancy. Urban population projections can also be based on LCPDP projections based on the same source but picking urbanization rates to project the 2019 urban population census data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Freight</p></td>
+<td><p>GDP</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Other Transport</p></td>
+<td><p>GDP</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sectors">
+<h2>2.3 Sectors<a class="headerlink" href="#sectors" title="Permalink to this heading"></a></h2>
+<section id="agriculture">
+<h3>Agriculture<a class="headerlink" href="#agriculture" title="Permalink to this heading"></a></h3>
+<p>Fuel consumption from the energy balance was aggregated for the three sectors and sub divided in % shares into relevant energy service demands per fuel category: Electrical appliances, Machinery. This was then calculated into energy service demands in PJ and an efficiency amount applied to derive useful energy demand per fuel category.</p>
+</section>
+<section id="commercial-sector">
+<h3>Commercial sector<a class="headerlink" href="#commercial-sector" title="Permalink to this heading"></a></h3>
+<p>Total fuel consumption is derived from the energy balance and sub-divided in % shares into relevant energy service demand per fuel category: Electrical Appliances, Low heat appliances. This was then calculated into energy service demands in PJ and an efficiency amount was applied to derive useful energy demand per fuel category</p>
+</section>
+<section id="industry">
+<h3>Industry<a class="headerlink" href="#industry" title="Permalink to this heading"></a></h3>
+<p>The fuel consumption was subdivided into three different sub-subsectors in the energy balance. The % shares were calculated for each fuel category from the total allocations: Industry - Non-metallic minerals (cement), Industry - F&amp;D, Industry – Other. Each sub-sector was further divided into relevant energy service demand and given a percentage share. Electrical Appliances (motive power), High heat, Low heat.
+The service demand in PJ was computed from this share and an efficiency value applied to it. This then gave the useful energy service demand per fuel category. A total amount for each useful service demand was computed within the industry sector.</p>
+</section>
+<section id="residential-sector">
+<h3>Residential sector<a class="headerlink" href="#residential-sector" title="Permalink to this heading"></a></h3>
+<p>A split between Urban and Rural fuel consumption was given. The split was done in percentage vales for each fuel and added up to 100%. From this split consumption for the relevant fuel was calculated in PJ from the total consumption for the residential sector
+Consumption by fuel was further subdivided into energy service demands. Each allocation was given a percentage split that summed up to a total 100%
+The energy service demands given under the urban and rural splits were: Cooking, Heating (low heat), Lighting, Cooling, Other electrical appliances
+The consumption for each service demand by fuel was calculated for each allocation from the total fuel use given for the split between the urban and rural areas
+Efficiency was applied for the allocations to derive useful energy service demand</p>
+</section>
+<section id="transports">
+<h3>Transports<a class="headerlink" href="#transports" title="Permalink to this heading"></a></h3>
+<p>The total consumption for each fuel was derived from the energy balance. This was then apportioned in % shares to different energy service demands relevant to the sector. The shares for each service demand by fuel category added up to 100%
+The energy service demand under transport included: Motorcycles, Cars, Buses, Heavy Duty Vehicles (HDVs), Light Duty Vehicles (LDVs), Aviation, Shipping and Rail
+The service demand was then calculated from each share in PJ. Their totals by fuel category summed up to the aggregate total consumption in the transport sector derived from the energy balance equivalent to each fuel. A check for whether the two totals sums up was provided for in the energy balance sheet
+Efficiency values for each service demand were given per fuel category to calculate useful energy per service demand.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modelstructure.html" class="btn btn-neutral float-left" title="1. Model structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="datainputs.html" class="btn btn-neutral float-right" title="3. Data inputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Climate Compatible Growth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

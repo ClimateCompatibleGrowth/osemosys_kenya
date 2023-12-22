@@ -1,6 +1,6 @@
-========
-Overview
-========
+=========
+Framework
+=========
 
 An overview of the entire reference energy system is given in the following figure.
 
