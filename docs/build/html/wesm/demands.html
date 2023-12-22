@@ -1,44 +1,103 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Demand projections &mdash; OSeMOSYS Kenya 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
 
-    <title>2. Demand projections &#8212; OSeMOSYS Kenya 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Data inputs" href="datainputs.html" />
-    <link rel="prev" title="1. Model structure" href="modelstructure.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="1. Model structure" href="modelstructure.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="../index.html" class="icon icon-home">
+            OSeMOSYS Kenya
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psm/psm.html">Power system model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="wesm.html">Whole energy system model</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modelstructure.html">1. Model structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Demand projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#current-energy-balance">2.1 Current energy balance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.2 Demand projections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sectors">2.3 Sectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agriculture">Agriculture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commercial-sector">Commercial sector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#industry">Industry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#residential-sector">Residential sector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transports">Transports</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="datainputs.html">3. Data inputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../annex/annex.html">Annexes</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OSeMOSYS Kenya</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="wesm.html">Whole energy system model</a></li>
+      <li class="breadcrumb-item active">2. Demand projections</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wesm/demands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="demand-projections">
-<h1>2. Demand projections<a class="headerlink" href="#demand-projections" title="Permalink to this heading">¶</a></h1>
+<h1>2. Demand projections<a class="headerlink" href="#demand-projections" title="Permalink to this heading"></a></h1>
 <p>Demand curves are obtained outside the OSeMOSYS model and then given to it as input. A demand workbook has been defined to obtain the energy service demand values for each sector. An overview of the data sources and the assumptions behind the demand workbook is given in the following. Section 2.1 describes how the initial values, for 2019, have been obtained. Section 2.2 illustrates the available demand drivers and Section 2.3 outlines more in detail how each sectorial demand has been defined and projections have been done.</p>
 <section id="current-energy-balance">
-<h2>2.1 Current energy balance<a class="headerlink" href="#current-energy-balance" title="Permalink to this heading">¶</a></h2>
+<h2>2.1 Current energy balance<a class="headerlink" href="#current-energy-balance" title="Permalink to this heading"></a></h2>
 <p>An energy balance tracks the flow of energy within a geographical area in a given period . This sheet gives a breakdown of the different fuels in terms of supply defined as the Total Energy Supply (TES) and consumption defined as the Total final consumption (TFC).
 The Total energy supply (TES) was given as a sum of what was produced locally in the country, imports (+), exports (-), marine and aviation bunkers treated as exports and stock changes that could be positive or negative. The TFC was given as a sum total of transfers (change in commodity balance through a change in use) that could be positive or negative, statistical differences indicating differences between supply and demand (positive or negative), Transformation processes which excluded all fuels used for the process and includes the product of transformation, that was given as a sum of Electricity plants (main producers – generating electricity for sale as their main business), Electricity plants (autoproducers – generating electricity for their own needs but could sell any surplus), Other transformation that does not include electricity, energy industry own use for example consumption of electricity in power plants (-) and losses occurring during transmission and distribution of electricity and gas (-) .
 The energy balance was based on the International Energy Agency (IEA) 2019 energy balance for Kenya. The unit of energy was converted from thousand tonnes of oil equivalent (ktoe) to petajoules (PJ)
@@ -46,7 +105,7 @@ Consumption for each fuel is broken down into various sectors that added up to t
 The sectors included: Residential, Industry, Commerce &amp; Service, Agriculture, Fisheries, Other, Transport, Non-Energy Use</p>
 </section>
 <section id="id1">
-<h2>2.2 Demand projections<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>2.2 Demand projections<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <p>The energy service demand projections was done drawn from each sector represented from the 2019 energy balance. The relevant projection drivers included population (Mln people for three different scenarios – High, Central and Low), urbanization share, urban and rural household occupancy, household electricity use (Central and Low scenarios), Gross Domestic Product (GDP – High, Central, Low scenarios), Gross Value Added (GVA – High, Central, Low scenarios) contribution per relevant sector.
 The table shows how each projection driver was applied to the service demands described.</p>
 <table class="docutils align-default">
@@ -148,22 +207,22 @@ The table shows how each projection driver was applied to the service demands de
 </table>
 </section>
 <section id="sectors">
-<h2>2.3 Sectors<a class="headerlink" href="#sectors" title="Permalink to this heading">¶</a></h2>
+<h2>2.3 Sectors<a class="headerlink" href="#sectors" title="Permalink to this heading"></a></h2>
 <section id="agriculture">
-<h3>Agriculture<a class="headerlink" href="#agriculture" title="Permalink to this heading">¶</a></h3>
+<h3>Agriculture<a class="headerlink" href="#agriculture" title="Permalink to this heading"></a></h3>
 <p>Fuel consumption from the energy balance was aggregated for the three sectors and sub divided in % shares into relevant energy service demands per fuel category: Electrical appliances, Machinery. This was then calculated into energy service demands in PJ and an efficiency amount applied to derive useful energy demand per fuel category.</p>
 </section>
 <section id="commercial-sector">
-<h3>Commercial sector<a class="headerlink" href="#commercial-sector" title="Permalink to this heading">¶</a></h3>
+<h3>Commercial sector<a class="headerlink" href="#commercial-sector" title="Permalink to this heading"></a></h3>
 <p>Total fuel consumption is derived from the energy balance and sub-divided in % shares into relevant energy service demand per fuel category: Electrical Appliances, Low heat appliances. This was then calculated into energy service demands in PJ and an efficiency amount was applied to derive useful energy demand per fuel category</p>
 </section>
 <section id="industry">
-<h3>Industry<a class="headerlink" href="#industry" title="Permalink to this heading">¶</a></h3>
+<h3>Industry<a class="headerlink" href="#industry" title="Permalink to this heading"></a></h3>
 <p>The fuel consumption was subdivided into three different sub-subsectors in the energy balance. The % shares were calculated for each fuel category from the total allocations: Industry - Non-metallic minerals (cement), Industry - F&amp;D, Industry – Other. Each sub-sector was further divided into relevant energy service demand and given a percentage share. Electrical Appliances (motive power), High heat, Low heat.
 The service demand in PJ was computed from this share and an efficiency value applied to it. This then gave the useful energy service demand per fuel category. A total amount for each useful service demand was computed within the industry sector.</p>
 </section>
 <section id="residential-sector">
-<h3>Residential sector<a class="headerlink" href="#residential-sector" title="Permalink to this heading">¶</a></h3>
+<h3>Residential sector<a class="headerlink" href="#residential-sector" title="Permalink to this heading"></a></h3>
 <p>A split between Urban and Rural fuel consumption was given. The split was done in percentage vales for each fuel and added up to 100%. From this split consumption for the relevant fuel was calculated in PJ from the total consumption for the residential sector
 Consumption by fuel was further subdivided into energy service demands. Each allocation was given a percentage split that summed up to a total 100%
 The energy service demands given under the urban and rural splits were: Cooking, Heating (low heat), Lighting, Cooling, Other electrical appliances
@@ -171,7 +230,7 @@ The consumption for each service demand by fuel was calculated for each allocati
 Efficiency was applied for the allocations to derive useful energy service demand</p>
 </section>
 <section id="transports">
-<h3>Transports<a class="headerlink" href="#transports" title="Permalink to this heading">¶</a></h3>
+<h3>Transports<a class="headerlink" href="#transports" title="Permalink to this heading"></a></h3>
 <p>The total consumption for each fuel was derived from the energy balance. This was then apportioned in % shares to different energy service demands relevant to the sector. The shares for each service demand by fuel category added up to 100%
 The energy service demand under transport included: Motorcycles, Cars, Buses, Heavy Duty Vehicles (HDVs), Light Duty Vehicles (LDVs), Aviation, Shipping and Rail
 The service demand was then calculated from each share in PJ. Their totals by fuel category summed up to the aggregate total consumption in the transport sector derived from the energy balance equivalent to each fuel. A check for whether the two totals sums up was provided for in the energy balance sheet
@@ -181,81 +240,34 @@ Efficiency values for each service demand were given per fuel category to calcul
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modelstructure.html" class="btn btn-neutral float-left" title="1. Model structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="datainputs.html" class="btn btn-neutral float-right" title="3. Data inputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Climate Compatible Growth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">OSeMOSYS Kenya</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../psm/psm.html">Power system model</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="wesm.html">Whole energy system model</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modelstructure.html">1. Model structure</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Demand projections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datainputs.html">3. Data inputs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../annex/annex.html">Annexes</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="wesm.html">Whole energy system model</a><ul>
-      <li>Previous: <a href="modelstructure.html" title="previous chapter">1. Model structure</a></li>
-      <li>Next: <a href="datainputs.html" title="next chapter">3. Data inputs</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, Climate Compatible Growth.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/wesm/demands.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

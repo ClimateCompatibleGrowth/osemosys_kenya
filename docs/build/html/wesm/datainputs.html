@@ -1,45 +1,123 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Data inputs &mdash; OSeMOSYS Kenya 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
 
-    <title>3. Data inputs &#8212; OSeMOSYS Kenya 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Annexes" href="../annex/annex.html" />
-    <link rel="prev" title="2. Demand projections" href="demands.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="2. Demand projections" href="demands.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="../index.html" class="icon icon-home">
+            OSeMOSYS Kenya
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psm/psm.html">Power system model</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="wesm.html">Whole energy system model</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modelstructure.html">1. Model structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demands.html">2. Demand projections</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Data inputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-data-sources">3.1 Main data sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-parameters">3.2 Global parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#discountrate">DiscountRate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#yearsplit">YearSplit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#demand">3.3 Demand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance">3.4 Performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#capacitytoactivityunit">CapacityToActivityUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capacityfactor">CapacityFactor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#availabilityfactor">AvailabilityFactor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operationallife">OperationalLife</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inputactivityratio-and-outputactivityratio">InputActivityRatio and OutputActivityRatio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#residualcapacity">ResidualCapacity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#totalannualmin-maxcapacity">TotalAnnualMin/MaxCapacity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#totalannualactivitylower-upperlimit">TotalAnnualActivityLower/UpperLimit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservemargin-and-reservemargintagtechnology">ReserveMargin and ReserveMarginTagTechnology</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#costs">3.5 Costs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#capitalcost">CapitalCost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fixedcost">FixedCost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variablecost">VariableCost</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#emissions">3.6 Emissions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#emissionactivityratio">EmissionActivityRatio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../annex/annex.html">Annexes</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OSeMOSYS Kenya</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="wesm.html">Whole energy system model</a></li>
+      <li class="breadcrumb-item active">3. Data inputs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wesm/datainputs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="data-inputs">
-<h1>3. Data inputs<a class="headerlink" href="#data-inputs" title="Permalink to this heading">¶</a></h1>
+<h1>3. Data inputs<a class="headerlink" href="#data-inputs" title="Permalink to this heading"></a></h1>
 <p>This section gives an overview of the data sources used in the model and how it was implemented.</p>
 <section id="main-data-sources">
-<h2>3.1 Main data sources<a class="headerlink" href="#main-data-sources" title="Permalink to this heading">¶</a></h2>
+<h2>3.1 Main data sources<a class="headerlink" href="#main-data-sources" title="Permalink to this heading"></a></h2>
 <p>The following table lists the main data sources used to populate the model. Where available, Kenyan data sources have been used, either directly in the model or, if not in the right format, to validate the data already in the model. It is the case of the technologies in the agricultural, commercial, and industrial sectors, for which the level of detail could be improved. The power sector heavily relies on data provided by the LCPDP team. Data for the residential sector has been also provided by Nuvoni, a Kenyan consultancy firm currently working at the national e-cooking strategy to be published in the next months.</p>
 <table class="docutils align-default">
 <thead>
@@ -134,14 +212,14 @@
 </table>
 </section>
 <section id="global-parameters">
-<h2>3.2 Global parameters<a class="headerlink" href="#global-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>3.2 Global parameters<a class="headerlink" href="#global-parameters" title="Permalink to this heading"></a></h2>
 <p>Global parameters are parameters influencing the model as a whole.</p>
 <section id="discountrate">
-<h3>DiscountRate<a class="headerlink" href="#discountrate" title="Permalink to this heading">¶</a></h3>
+<h3>DiscountRate<a class="headerlink" href="#discountrate" title="Permalink to this heading"></a></h3>
 <p>An annual discount rate of 9% is applied throughout the model.</p>
 </section>
 <section id="yearsplit">
-<h3>YearSplit<a class="headerlink" href="#yearsplit" title="Permalink to this heading">¶</a></h3>
+<h3>YearSplit<a class="headerlink" href="#yearsplit" title="Permalink to this heading"></a></h3>
 <p>Year split is the parameter where the length of timeslices is given. The length of each timeslice is given by the combination of season, day type and portion of the day. Kenya’s weather is characterized by a dry season, two wet ones, and an intermediate one. The length of each season is given in the following table, as well as the corresponding fraction of the year. The distinction between weekdays and weekends, as well as dividing each single day in 6 time bands, is driven by an analysis of Kenya’s power demand curve. As for seasons, for each day type and time band the corresponding fraction of the total (resepctively 7 days and 24 hours) is computed. Each of the 48 timeslices is given by a unique combination of season, day type and time band, and the corresponding fraction of the year is obtained by multiplying the single fractions of each component.</p>
 <table class="docutils align-left">
 <thead>
@@ -234,48 +312,48 @@
 </section>
 </section>
 <section id="demand">
-<h2>3.3 Demand<a class="headerlink" href="#demand" title="Permalink to this heading">¶</a></h2>
+<h2>3.3 Demand<a class="headerlink" href="#demand" title="Permalink to this heading"></a></h2>
 <p>The procedure used to determine the annual demand, and the demand types per each sector are introduced in the dedicated Section 2. Demands are then added in the model in two possible ways. In case demand is only given as an annual value, without any information on the demand profile trhoughout the year, then the parameter of choice is AccumulatedAnnualDemand. In case a profile is given, then the demand is represented through two parameters:SpecifiedAnnualDemand, where the total annual demand is given, and SpecifiedDemandProfile, where the profile is. Currently in the model demand the demand profile is specified for the residential sector, while all other sector only have an AccumulatedAnnualDemand profile defined.</p>
 </section>
 <section id="performance">
-<h2>3.4 Performance<a class="headerlink" href="#performance" title="Permalink to this heading">¶</a></h2>
+<h2>3.4 Performance<a class="headerlink" href="#performance" title="Permalink to this heading"></a></h2>
 <p>This section deals with parametrs used to describe the performance and availability of the technologies available in the model. Where not explicitly reported, the specific values for each technology can be obtained from the data file of the model.</p>
 <section id="capacitytoactivityunit">
-<h3>CapacityToActivityUnit<a class="headerlink" href="#capacitytoactivityunit" title="Permalink to this heading">¶</a></h3>
+<h3>CapacityToActivityUnit<a class="headerlink" href="#capacitytoactivityunit" title="Permalink to this heading"></a></h3>
 <p>This parameter is used to define the relationship between capacity and activity level of the technologies, based on the units of measure considered. In the power sector, it represents the relationship between power, expressed in GW, and energy, expressed in PJ. 1 GW of constant power throughout the year corresponds to 31.536 PJ, which is the value considered for power plants. The same goes for all other technologies for which activity is given in terms of PJ and capacity in GW. Different is the case for technologies where demand is not expressed in PJ, but in other units of measure, as, for example, the transport sector, where demand is expressed in billion vehicle-kilometers (bvkm). In this case, the capacity unit is expressed in bvkm/year, and hence the CapacityToActivityUnit parameter is 1.</p>
 </section>
 <section id="capacityfactor">
-<h3>CapacityFactor<a class="headerlink" href="#capacityfactor" title="Permalink to this heading">¶</a></h3>
+<h3>CapacityFactor<a class="headerlink" href="#capacityfactor" title="Permalink to this heading"></a></h3>
 <p>Capacity factors are highly dependent on the technology considered, down to the single power plant level. For each technology, capacity factors are defined for each timeslice. All capacity factors in the power sector have been provided by the LCPDP team, whil eoutside of the power sector all capacity factors are set to 1.</p>
 </section>
 <section id="availabilityfactor">
-<h3>AvailabilityFactor<a class="headerlink" href="#availabilityfactor" title="Permalink to this heading">¶</a></h3>
+<h3>AvailabilityFactor<a class="headerlink" href="#availabilityfactor" title="Permalink to this heading"></a></h3>
 <p>This parameter represents the portion of the year during which a certain technology is available. As for the capacity factor, it is used only for the power sector. Different availabilities factors are defined for different technologies, based on data provided by the LCPDP team or from values commonly used in the literature when the former where not available. For all other sectors the availability factor is set to 1.</p>
 </section>
 <section id="operationallife">
-<h3>OperationalLife<a class="headerlink" href="#operationallife" title="Permalink to this heading">¶</a></h3>
+<h3>OperationalLife<a class="headerlink" href="#operationallife" title="Permalink to this heading"></a></h3>
 <p>The operational life represent the number of years for which a certain technology is available before it has to be substituted (e.g. a new investment is needed). It is defined on a technology basis and the values considered have been obtained from different sources, depending on the sector, as outlined in Section 3.1, where the major data sources are listed.</p>
 </section>
 <section id="inputactivityratio-and-outputactivityratio">
-<h3>InputActivityRatio and OutputActivityRatio<a class="headerlink" href="#inputactivityratio-and-outputactivityratio" title="Permalink to this heading">¶</a></h3>
+<h3>InputActivityRatio and OutputActivityRatio<a class="headerlink" href="#inputactivityratio-and-outputactivityratio" title="Permalink to this heading"></a></h3>
 <p>Input and output activity ratios represent, respectively, the rate of use or output of a technology, a ratio of the rate of activity. The ratio between output and input hence represents the efficiency of a certain technology, defined with the resulting unit of measure. The convention adopted in the model is that the output activity ratio is set to 1 for all technologies. As a consequence, the input activity ratio is the reciprocal of the efficiency:</p>
 <div class="math notranslate nohighlight">
 \[OAR = \frac{1}{\eta}\]</div>
 </section>
 <section id="residualcapacity">
-<h3>ResidualCapacity<a class="headerlink" href="#residualcapacity" title="Permalink to this heading">¶</a></h3>
+<h3>ResidualCapacity<a class="headerlink" href="#residualcapacity" title="Permalink to this heading"></a></h3>
 <p>Residual capacity is used to represent the current capacity mix and the residual amount of years each technology has before reaching its end-of-life. In the WESM model, the residual capacity is only used in the power sector, and the required values have been obtained from the LCPDP. In all other sectors the current mix is enforced a lower limit on annual activity, through the TotalAnnualActivityLowerLimit parameter.</p>
 </section>
 <section id="totalannualmin-maxcapacity">
-<h3>TotalAnnualMin/MaxCapacity<a class="headerlink" href="#totalannualmin-maxcapacity" title="Permalink to this heading">¶</a></h3>
+<h3>TotalAnnualMin/MaxCapacity<a class="headerlink" href="#totalannualmin-maxcapacity" title="Permalink to this heading"></a></h3>
 <p>Lower and upper limits on the annual capacity are used in combination to introduce different types of constraint on the technologies available in the power sector. Lower limits are used to ensure that planned power plants are selected by the model, while upper limits to ensure that technologies not yet available are considered only when appropriate and gradually introduced in the model.</p>
 </section>
 <section id="totalannualactivitylower-upperlimit">
-<h3>TotalAnnualActivityLower/UpperLimit<a class="headerlink" href="#totalannualactivitylower-upperlimit" title="Permalink to this heading">¶</a></h3>
+<h3>TotalAnnualActivityLower/UpperLimit<a class="headerlink" href="#totalannualactivitylower-upperlimit" title="Permalink to this heading"></a></h3>
 <p>These parameters serve a scope similar to the capacity limits, but are set on an activity basis. Lower activity limits are used to constrain the current capacity mix in all end use sectors, and then are progressively removed to leave the model with more freedom to select the cost optimal options.</p>
 </section>
 <section id="reservemargin-and-reservemargintagtechnology">
-<h3>ReserveMargin and ReserveMarginTagTechnology<a class="headerlink" href="#reservemargin-and-reservemargintagtechnology" title="Permalink to this heading">¶</a></h3>
+<h3>ReserveMargin and ReserveMarginTagTechnology<a class="headerlink" href="#reservemargin-and-reservemargintagtechnology" title="Permalink to this heading"></a></h3>
 <p>Reserve margin is a power sector specific-parameter, and represents the extra firm capacity that is needed in the system as backup. An extra 9% on the total capacity is considered each year. Not all technologies can contribute to the reserve margin, while some technologies are only considered to contribute with a fraction of their capacity. The parameter that allows to regulate the contribution of each technology to the reserve margin is the ReserveMarginTagTechnology. A list of the contribution from each parameter is given in the following.</p>
 <table class="docutils align-default">
 <thead>
@@ -322,25 +400,25 @@
 </section>
 </section>
 <section id="costs">
-<h2>3.5 Costs<a class="headerlink" href="#costs" title="Permalink to this heading">¶</a></h2>
+<h2>3.5 Costs<a class="headerlink" href="#costs" title="Permalink to this heading"></a></h2>
 <section id="capitalcost">
-<h3>CapitalCost<a class="headerlink" href="#capitalcost" title="Permalink to this heading">¶</a></h3>
+<h3>CapitalCost<a class="headerlink" href="#capitalcost" title="Permalink to this heading"></a></h3>
 <p>Capital costs are expressed in MUSD/capacity unit and are defined on a technology basis. All costs have been obtained from the main data sources listed in Section 3.1.</p>
 </section>
 <section id="fixedcost">
-<h3>FixedCost<a class="headerlink" href="#fixedcost" title="Permalink to this heading">¶</a></h3>
+<h3>FixedCost<a class="headerlink" href="#fixedcost" title="Permalink to this heading"></a></h3>
 <p>Fixed costs represent the annual costs associated to a technology, regardless of the activity, and are expressed as a function of the installed capacity MUSD/capacity unit/year.</p>
 </section>
 <section id="variablecost">
-<h3>VariableCost<a class="headerlink" href="#variablecost" title="Permalink to this heading">¶</a></h3>
+<h3>VariableCost<a class="headerlink" href="#variablecost" title="Permalink to this heading"></a></h3>
 <p>Variable costs represents the annual costs associated to the activity of a certain technology, and are expressed in MUSD/activity unit/year. Variable costs can hence be used to account for fuel expenditure. To allow for competition between different sectors, fuel costs are defined at a primary commodity level, hence associated to either MIN technologies (local production) or IMP technologies (imports). Additional sector-specific fuels costs are accounted for in the FTE technologies of each sector.</p>
 </section>
 </section>
 <section id="emissions">
-<h2>3.6 Emissions<a class="headerlink" href="#emissions" title="Permalink to this heading">¶</a></h2>
+<h2>3.6 Emissions<a class="headerlink" href="#emissions" title="Permalink to this heading"></a></h2>
 <p>Currently, emissions in the model are limited to CO<sub>2</sub> emissions. As shown in Section 1.2, emissions are double counted to facilitate the post processing of the results.</p>
 <section id="emissionactivityratio">
-<h3>EmissionActivityRatio<a class="headerlink" href="#emissionactivityratio" title="Permalink to this heading">¶</a></h3>
+<h3>EmissionActivityRatio<a class="headerlink" href="#emissionactivityratio" title="Permalink to this heading"></a></h3>
 <p>Emissions are modelled through the emission activity ratio parameter, that defines the amount of tons of CO<sub>2</sub> associated to a unit of activity, PJ. General emissions are accounted at a primary commodity level, while sectorial specific emissions are associated to FTE technologies. A summary of the emissions per fuel type is given in the following table.</p>
 <table class="docutils align-default">
 <thead>
@@ -380,81 +458,34 @@
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="demands.html" class="btn btn-neutral float-left" title="2. Demand projections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../annex/annex.html" class="btn btn-neutral float-right" title="Annexes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Climate Compatible Growth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">OSeMOSYS Kenya</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../psm/psm.html">Power system model</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="wesm.html">Whole energy system model</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modelstructure.html">1. Model structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="demands.html">2. Demand projections</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Data inputs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../annex/annex.html">Annexes</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="wesm.html">Whole energy system model</a><ul>
-      <li>Previous: <a href="demands.html" title="previous chapter">2. Demand projections</a></li>
-      <li>Next: <a href="../annex/annex.html" title="next chapter">Annexes</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, Climate Compatible Growth.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/wesm/datainputs.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
