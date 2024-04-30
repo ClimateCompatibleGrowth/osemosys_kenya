@@ -7,6 +7,25 @@ This repository houses OSeMOSYS-Kenya models and scripts developed under the Cli
 The power system model describes the power sector at a single power plant level. The model includes storage, in a different implementation from the official OSeMSYS version's one.
 The data file has been generated through the MOMANI UI, while the model file contains the specific storage implementation.
 
+### Citing OSeMOSYS-Kenya PSM 
+If you work on the current version of the PSM, please cite the following paper:
+
+M. Kihara, P. Lubello, A. Millot, M. Akute, J. Kilonzi, M. Kitili, F. Mukuri, B. Kinyanjui, P. Hoseinpoori, A. Hawkes, A. Shivakumar, D. Welsby, S. Pye, Mid- to long-term capacity planning for a reliable power system in Kenya, Energy Strategy Reviews 52 (2024) 101312. https://doi.org/10.1016/j.esr.2024.101312.
+
+BibTeX:
+
+    @article{osemosys_kenya_psm,
+      title = {Mid- to long-term capacity planning for a reliable power system in Kenya},
+      author = {Mungai Kihara and Pietro Lubello and Ariane Millot and Michelle Akute and Julius Kilonzi and Monicah Kitili and Felister Mukuri and Boniface Kinyanjui and Pooya Hoseinpoori and Adam Hawkes and Abhishek Shivakumar and Dan Welsby and Steve Pye},
+      journal = {Energy Strategy Reviews},
+      volume = {52},
+      pages = {101312},
+      year = {2024},
+      issn = {2211-467X},
+      doi = {https://doi.org/10.1016/j.esr.2024.101312},
+      url = {https://www.sciencedirect.com/science/article/pii/S2211467X24000191}
+      }
+
 ## Whole energy system model (WESM)
 The whole energy system model includes the power system one, but is expanded to consider all energy sectors. In the current version, no storage technologies are included.
 The data file has been generated through the UNDESA UI, and the model file is the same as the one used by the UI.
